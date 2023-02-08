@@ -1,6 +1,11 @@
 package com.generation.blogpessoal.security;
 
+import com.generation.blogpessoal.model.Usuario;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
 
 public class UserDetailslmpl implements UserDetails {
 
@@ -11,52 +16,43 @@ public class UserDetailslmpl implements UserDetails {
 
     private List<GrantedAuthority> authorities;
 
-    public UserDetailslmpl (Usuario user){
+    public UserDetailslmpl(Usuario user) {
         this.userName = user.getUsuario();
         this.password = user.getSenha();
     }
 
-    public UserDetailslmpl (){ }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-
-        return authorities;
+        return null;
     }
 
     @Override
     public String getPassword() {
-
-        return password;
+        return null;
     }
 
     @Override
     public String getUsername() {
-
-        return userName;
+        return null;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-
-        return true;
+        return false;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-
-        return true;
+        return false;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-
-        return true;
+        return false;
     }
 
     @Override
     public boolean isEnabled() {
-
-        return true;
+        return false;
     }
 }
