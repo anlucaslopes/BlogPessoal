@@ -41,7 +41,8 @@ public class PostagemController {
         return ResponseEntity.ok(postagemRepository.findAllByTituloContainingIgnoreCase(titulo));
     }
 
-    @PostMapping
+
+    @PostMapping("/cadastrar")
     public ResponseEntity<Postagem> post(@Valid @RequestBody Postagem postagem) {
         if (temaRepository.existsById(postagem.getTema().getId()))
             return ResponseEntity.status(HttpStatus.CREATED)
@@ -51,7 +52,7 @@ public class PostagemController {
 
     }
 
-    @PutMapping
+    @PutMapping("/atualizar")
     public ResponseEntity<Postagem> put(@Valid @RequestBody Postagem postagem) {
         if (postagemRepository.existsById(postagem.getId())) {
 
